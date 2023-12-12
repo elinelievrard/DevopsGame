@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T_Rex", "WinFormsApp1\T_Rex.csproj", "{CF464541-2CF8-4EBE-9DD6-A0CE3010E16B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF464541-2CF8-4EBE-9DD6-A0CE3010E16B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF464541-2CF8-4EBE-9DD6-A0CE3010E16B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF464541-2CF8-4EBE-9DD6-A0CE3010E16B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF464541-2CF8-4EBE-9DD6-A0CE3010E16B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D79F050-05B6-4ED0-A080-2C869DADE1B1}
+	EndGlobalSection
+EndGlobal
