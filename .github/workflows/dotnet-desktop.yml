@@ -113,3 +113,10 @@ jobs:
       with:
         name: MSIX Package
         path: ${{ env.Wap_Project_Directory }}\AppPackages
+
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v2.1.1
+      with:
+        name: Artifact1
+        path: Wap_Project_Directory
+          
