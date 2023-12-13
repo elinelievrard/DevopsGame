@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eline\\source\\repos\\trex\\WinFormsApp1\\T_Rex.csproj": {}
+    "C:\\Users\\eline\\source\\repos\\DevopsGame\\WinFormsApp1\\T_Rex.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eline\\source\\repos\\trex\\WinFormsApp1\\T_Rex.csproj": {
+    "C:\\Users\\eline\\source\\repos\\DevopsGame\\WinFormsApp1\\T_Rex.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eline\\source\\repos\\trex\\WinFormsApp1\\T_Rex.csproj",
+        "projectUniqueName": "C:\\Users\\eline\\source\\repos\\DevopsGame\\WinFormsApp1\\T_Rex.csproj",
         "projectName": "T_Rex",
-        "projectPath": "C:\\Users\\eline\\source\\repos\\trex\\WinFormsApp1\\T_Rex.csproj",
+        "projectPath": "C:\\Users\\eline\\source\\repos\\DevopsGame\\WinFormsApp1\\T_Rex.csproj",
         "packagesPath": "C:\\Users\\eline\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eline\\source\\repos\\trex\\WinFormsApp1\\obj\\",
+        "outputPath": "C:\\Users\\eline\\source\\repos\\DevopsGame\\WinFormsApp1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\eline\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,6 +52,12 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "autoReferenced": true
+            },
             "System.Data.SQLite": {
               "target": "Package",
               "version": "[1.0.118, )"
@@ -72,6 +78,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[8.0.0, 8.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[8.0.0, 8.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[8.0.0, 8.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -81,6 +101,11 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }

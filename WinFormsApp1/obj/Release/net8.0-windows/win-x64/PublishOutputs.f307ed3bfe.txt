@@ -1,0 +1,11 @@
+C:\Users\eline\source\repos\DevopsGame\WinFormsApp1\bin\Release\net8.0-windows\win-x64\publish\T_Rex.pdb
+C:\Users\eline\source\repos\DevopsGame\WinFormsApp1\bin\Release\net8.0-windows\win-x64\publish\T_Rex.dll.config
+C:\Users\eline\source\repos\DevopsGame\WinFormsApp1\bin\Release\net8.0-windows\win-x64\publish\D3DCompiler_47_cor3.dll
+C:\Users\eline\source\repos\DevopsGame\WinFormsApp1\bin\Release\net8.0-windows\win-x64\publish\PenImc_cor3.dll
+C:\Users\eline\source\repos\DevopsGame\WinFormsApp1\bin\Release\net8.0-windows\win-x64\publish\PresentationNative_cor3.dll
+C:\Users\eline\source\repos\DevopsGame\WinFormsApp1\bin\Release\net8.0-windows\win-x64\publish\vcruntime140_cor3.dll
+C:\Users\eline\source\repos\DevopsGame\WinFormsApp1\bin\Release\net8.0-windows\win-x64\publish\wpfgfx_cor3.dll
+C:\Users\eline\source\repos\DevopsGame\WinFormsApp1\bin\Release\net8.0-windows\win-x64\publish\sni.dll
+C:\Users\eline\source\repos\DevopsGame\WinFormsApp1\bin\Release\net8.0-windows\win-x64\publish\e_sqlite3.dll
+C:\Users\eline\source\repos\DevopsGame\WinFormsApp1\bin\Release\net8.0-windows\win-x64\publish\SQLite.Interop.dll
+C:\Users\eline\source\repos\DevopsGame\WinFormsApp1\bin\Release\net8.0-windows\win-x64\publish\T_Rex.exe
