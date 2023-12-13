@@ -107,12 +107,12 @@ jobs:
     - name: Remove the pfx
       run: Remove-Item -path $env:Wap_Project_Directory\GitHubActionsWorkflow.pfx
 
-    # Upload the MSIX package: https://github.com/marketplace/actions/upload-a-build-artifact
-    - name: Upload build artifacts
+   # Upload the MSIX package
+    - name: Upload build artifacts  
       uses: actions/upload-artifact@v3
       with:
-        name: MSIX Package
-        path: ${{ env.Wap_Project_Directory }}\AppPackages
+        name: MSIX Package  # Should match the 'name' used in the download step
+        path: ${{ env.Wap_Project_Directory }}/AppPackages
 
     # Download the MSIX package
     - name: Download MSIX Package
@@ -120,4 +120,4 @@ jobs:
       with:
         name: MSIX Package  # Should match the 'name' used in the upload step
         path: ${{ env.Wap_Project_Directory }}/DownloadedPackages  # Specify the path where you want to download the artifact
-          
+     
