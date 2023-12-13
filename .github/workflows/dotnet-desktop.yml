@@ -114,9 +114,10 @@ jobs:
         name: MSIX Package
         path: ${{ env.Wap_Project_Directory }}\AppPackages
 
-    - name: Download a Build Artifact
+    # Download the MSIX package
+    - name: Download MSIX Package
       uses: actions/download-artifact@v2.1.1
       with:
-        name: Artifact1
-        path: Wap_Project_Directory
+        name: MSIX Package  # Should match the 'name' used in the upload step
+        path: ${{ env.Wap_Project_Directory }}/DownloadedPackages  # Specify the path where you want to download the artifact
           
