@@ -59,8 +59,8 @@ jobs:
       Solution_Name: trex.sln                                   # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: your-test-project-path                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
       Wap_Project_Directory: WinFormsApp1                       # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      Wap_Project_Path: WinFormsApp1\T_Rex.csproj        # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
-      Wap_project_Path_Publish: WinFormsApp1\bin\Release\net8.0-windows\win-x64\publish
+      Wap_Project_Path: WinFormsApp1/T_Rex.csproj        # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+      Wap_project_Path_Publish: WinFormsApp1/bin/Release/net8.0-windows/win-x64/publish/
 
     steps:
     - name: Checkout
