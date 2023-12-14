@@ -118,5 +118,5 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: WebApp2
-        path: $env:Wap_project_Path_Publish/T_Rex.exe
+        path: ${{ github.workspace }}/WinFormsApp1/bin/Release/net8.0-windows/win-x64/publish/T_Rex.exe
      
