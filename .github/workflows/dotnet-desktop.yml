@@ -118,5 +118,5 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: WebApp2
-        path: $env:Wap_project_Path_Publish/**/*.exe
+        path: $env:Wap_project_Path_Publish/*.exe
      
