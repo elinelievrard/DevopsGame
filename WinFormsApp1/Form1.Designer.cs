@@ -35,6 +35,7 @@
             trex = new PictureBox();
             txtScore = new Label();
             gameTimer = new System.Windows.Forms.Timer(components);
+            gameOver = new Label();
             ((System.ComponentModel.ISupportInitialize)floor).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -75,7 +76,7 @@
             // trex
             // 
             trex.Image = Properties.Resources.running;
-            trex.Location = new Point(103, 332);
+            trex.Location = new Point(103, 335);
             trex.Name = "trex";
             trex.Size = new Size(40, 43);
             trex.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -97,12 +98,22 @@
             gameTimer.Interval = 20;
             gameTimer.Tick += MainGameTimerEvent;
             // 
+            // gameOver
+            // 
+            gameOver.AutoSize = true;
+            gameOver.Font = new Font("Consolas", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            gameOver.Location = new Point(230, 174);
+            gameOver.Name = "gameOver";
+            gameOver.Size = new Size(0, 33);
+            gameOver.TabIndex = 3;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 459);
+            Controls.Add(gameOver);
             Controls.Add(txtScore);
             Controls.Add(trex);
             Controls.Add(pictureBox3);
@@ -128,5 +139,6 @@
         private PictureBox trex;
         private Label txtScore;
         private System.Windows.Forms.Timer gameTimer;
+        private Label gameOver;
     }
 }

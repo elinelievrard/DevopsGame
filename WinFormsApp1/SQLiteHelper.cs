@@ -23,10 +23,11 @@ namespace T_Rex
             {
                 connection.Open();
 
-                // Create a Scores table if it doesn't exist
+                // Create a Scores table if it doesn't exist with automattically generated key
                 string createTableQuery = "CREATE TABLE IF NOT EXISTS Scores (ID INTEGER PRIMARY KEY AUTOINCREMENT, Score INTEGER)";
                 using (SQLiteCommand command = new SQLiteCommand(createTableQuery, connection))
                 {
+                    // Execute a query that doesn't return anything
                     command.ExecuteNonQuery();
                 }
             }
@@ -57,6 +58,8 @@ namespace T_Rex
                 connection.Open();
 
                 string insertQuery = "INSERT INTO Scores (Score) VALUES (@score)";
+
+                // Execute the query and give the new score as parameter
                 connection.Execute(insertQuery, new { score = scoreValue });
 
                 // output to confirm the scores are inserted in the database
@@ -71,6 +74,8 @@ namespace T_Rex
                 connection.Open();
 
                 string selectQuery = "SELECT MAX(Score) FROM Scores";
+
+                // Execute the query and return the highscore as an int (single value)
                 return connection.ExecuteScalar<int>(selectQuery);
             }
         }

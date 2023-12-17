@@ -13,12 +13,12 @@ namespace T_Rex
     public partial class Form1 : Form
     {
         bool jumping = false;
-        int jumpSpeed;
-        int force = 12;
+        int jumpSpeed; // Vertical speed of trex
+        int force = 12; // force during jump
         int score = 0;
         int obstacleSpeed = 10;
-        Random rand = new Random();
-        int position;
+        Random rand = new Random(); // Random for placing of the obstacle
+        int position; // Position for the obstacles
         bool isGameOver = false;
 
         public Form1()
@@ -26,6 +26,8 @@ namespace T_Rex
             InitializeComponent();
 
             SQLiteHelper.InitializeDatabase(); // Call to initialize the SQLite database
+
+            // Clear the high score when the application starts, preference
             SQLiteHelper.ClearScores();
 
             GameReset();
@@ -33,26 +35,29 @@ namespace T_Rex
 
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
+            // Vertical movement of trex based on the speed
             trex.Top += jumpSpeed;
 
             txtScore.Text = "Score: " + score;
 
+            // Jumping is false when trex is on the ground
             if (jumping == true && force < 0)
             {
                 jumping = false;
             }
 
+
             if (jumping == true)
             {
-                jumpSpeed = -12;
+                jumpSpeed = -12; // Move up
                 force -= 1;
             }
             else
             {
-                jumpSpeed = 12;
+                jumpSpeed = 12; // Move down
             }
 
-
+            // Make sure trex is on the floor when not jumping and not under or above it
             if (trex.Top > 254 && jumping == false)
             {
                 force = 12;
@@ -69,15 +74,27 @@ namespace T_Rex
 
                     if (x.Left < -100)
                     {
+                        // Reset obstacle position and add score
                         x.Left = this.ClientSize.Width + rand.Next(200, 500) + (x.Width * 15);
                         score++;
                     }
 
+                    // Check if the trex hit the obstacle, if so game over
                     if (trex.Bounds.IntersectsWith(x.Bounds))
                     {
                         gameTimer.Stop();
                         trex.Image = Properties.Resources.dead;
-                        txtScore.Text += " Press R to restart the game!";
+
+                        // Insert score
+                        SQLiteHelper.InsertScore(score);
+
+                        // Get score
+                        Score highScore = new Score();
+                        highScore.Value = SQLiteHelper.GetHighScore();
+
+                        // Display score
+                        gameOver.Text = $"Game Over! Press R\nYour High Score: {highScore.Value}";
+
                         isGameOver = true;
                     }
                 }
@@ -94,6 +111,7 @@ namespace T_Rex
         {
             if (e.KeyCode == Keys.Space && jumping == false)
             {
+                // set jumping to true only if he is not jumping, otherwise you can fly
                 jumping = true;
             }
         }
@@ -102,12 +120,13 @@ namespace T_Rex
         {
             if (jumping == true)
             {
+                // stop jump when key is released
                 jumping = false;
             }
 
             if (e.KeyCode == Keys.R && isGameOver == true)
             {
-                SQLiteHelper.InsertScore(score);
+                // Reset game when the game is over and R is pressed
                 GameReset();
             }
         }
@@ -132,20 +151,31 @@ namespace T_Rex
 
                 if (x is PictureBox && (string)x.Tag == "obstacle")
                 {
-                    position = this.ClientSize.Width + rand.Next(500, 800) + (x.Width * 10);
+                    // Make sure the obstacles don't overlap
+                    int minDistance = 400; // Minimum distance between obstacles
+
+                    do
+                    {
+                        position = this.ClientSize.Width + rand.Next(500, 800) + (x.Width * 10);
+                    }
+                    while (Math.Abs(position - trex.Right) < minDistance);
 
                     x.Left = position;
                 }
             }
 
+            gameOver.Text = "";
+
             gameTimer.Start();
 
-            Score highScore = new Score();
-            highScore.Value = SQLiteHelper.GetHighScore();
+            //Score highScore = new Score();
+            //highScore.Value = SQLiteHelper.GetHighScore();
 
-            MessageBox.Show($"Game Over!\nYour High Score: {highScore.Value}", "Game Over", MessageBoxButtons.OK);
+            //MessageBox.Show($"Game Over!\nYour High Score: {highScore.Value}", "Game Over", MessageBoxButtons.OK);
+
 
 
         }
+
     }
 }
