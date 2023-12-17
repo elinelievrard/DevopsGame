@@ -59,8 +59,8 @@ jobs:
       Solution_Name: trex.sln                                   # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: your-test-project-path                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
       Wap_Project_Directory: WinFormsApp1                       # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      Wap_Project_Path: WinFormsApp1\T_Rex.csproj        # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
-      Wap_project_Path: WinFormsApp1\bin\Release\net8.0-windows\win-x64\publish
+      Wap_Project_Path: WinFormsApp1/T_Rex.csproj        # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+      Wap_project_Path_Publish: ${{ github.workspace }}/WinFormsApp1/bin/Release/net8.0-windows/win-x64/publish/
 
     steps:
     - name: Checkout
@@ -108,25 +108,15 @@ jobs:
     - name: Remove the pfx
       run: Remove-Item -path $env:Wap_Project_Directory\GitHubActionsWorkflow.pfx
 
-    # Create the AppPackages directory before artifact upload
-    - name: Create AppPackages directory
-      run: mkdir -p ${{ env.Wap_Project_Directory }}/AppPackages
+    - name: Publish
+      run: dotnet publish
 
-   # Upload the MSIX package
-    - name: Upload build artifacts  
-      uses: actions/upload-artifact@v3
+    - name: List Directory Contents
+      run: ls -R $env:Wap_project_Path_Publish
+    
+    - name: Upload WebApp2 Build Artifact
+      uses: actions/upload-artifact@v2
       with:
-        name: MSIX Package  # Should match the 'name' used in the download step
-        path: ${{ env.Wap_Project_Directory }}/AppPackages
-        
-    # Create the DownloadedPackages directory before artifact download
-    - name: Create DownloadedPackages directory
-      run: mkdir -p ${{ env.Wap_Project_Directory }}/DownloadedPackages
-
-    # Download the MSIX package
-    - name: Download MSIX Package
-      uses: actions/download-artifact@v2.1.1
-      with:
-        name: MSIX Package  # Should match the 'name' used in the upload step
-        path: ${{ env.Wap_Project_Directory }}/DownloadedPackages  # Specify the path where you want to download the artifact
+        name: WebApp2
+        path: ${{ github.workspace }}/WinFormsApp1/bin/Release/net8.0-windows/win-x64/publish/T_Rex.exe
      
