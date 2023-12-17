@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("T_Rex")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d42331c64058a022e0f64d775aa06ec3e111c61")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6ee22209e502425e57e482d77ebdbce75252cb3")]
 [assembly: System.Reflection.AssemblyProductAttribute("T_Rex")]
 [assembly: System.Reflection.AssemblyTitleAttribute("T_Rex")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

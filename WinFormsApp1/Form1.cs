@@ -14,7 +14,7 @@ namespace T_Rex
     {
         bool jumping = false;
         int jumpSpeed; // Vertical speed of trex
-        int force = 12; // force during jump
+        int force = 12; // force during jump (height limit)
         int score = 0;
         int obstacleSpeed = 10;
         Random rand = new Random(); // Random for placing of the obstacle
@@ -65,9 +65,10 @@ namespace T_Rex
                 jumpSpeed = 0;
             }
 
-
+            // Go through all windows forms ellements
             foreach (Control x in this.Controls)
             {
+                // If it is a picturebox with this tag...
                 if (x is PictureBox && (string)x.Tag == "obstacle")
                 {
                     x.Left -= obstacleSpeed;
@@ -151,29 +152,16 @@ namespace T_Rex
 
                 if (x is PictureBox && (string)x.Tag == "obstacle")
                 {
-                    // Make sure the obstacles don't overlap
-                    int minDistance = 400; // Minimum distance between obstacles
-
-                    do
-                    {
-                        position = this.ClientSize.Width + rand.Next(500, 800) + (x.Width * 10);
-                    }
-                    while (Math.Abs(position - trex.Right) < minDistance);
-
-                    x.Left = position;
+                    // generate random position
+                    int position = rand.Next(600, 1000); 
+                    // change the obstacles left position to a random location begining of the game
+                    x.Left = 640 + (x.Left + position + x.Width * 3);
                 }
             }
 
             gameOver.Text = "";
 
             gameTimer.Start();
-
-            //Score highScore = new Score();
-            //highScore.Value = SQLiteHelper.GetHighScore();
-
-            //MessageBox.Show($"Game Over!\nYour High Score: {highScore.Value}", "Game Over", MessageBoxButtons.OK);
-
-
 
         }
 
