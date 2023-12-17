@@ -114,9 +114,9 @@ jobs:
     - name: List Directory Contents
       run: ls -R $env:Wap_project_Path_Publish
     
-    - name: Upload WebApp2 Build Artifact
+    - name: Upload TrexGame Build Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: WebApp2
+        name: TrexGame
         path: ${{ github.workspace }}/WinFormsApp1/bin/Release/net8.0-windows/win-x64/publish/T_Rex.exe
      
